@@ -1,0 +1,443 @@
+$colors : (
+    Pink: hsl(322, 100%, 66%),
+    Very-Pale-Cyan: hsl(193, 100%, 96%),
+    Very-Dark-Cyan: hsl(192, 100%, 9%),
+    Grayish-Blue: hsl(208, 11%, 55%)
+);
+
+$weigths : (
+    w300 : 300,
+    w600 : 600,
+    w700 : 700
+);
+
+$size : 18px;
+
+%btn {
+    border-radius: 50px;
+    font-weight: map-get($weigths, w700);
+    padding: 10px 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+        opacity: .8;
+    }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: $size;
+    @media screen and (max-width : 700px){
+        font-size: 14px;
+    }
+}
+
+body {
+    font-family: Open Sans;
+}
+
+.wrapper {
+    display: grid;
+    row-gap: 100px;
+
+    & .first_section {
+        background: url('../images/bg-hero-desktop.svg') center center no-repeat;
+        background-size: cover;
+        background-color: map-get($colors, Very-Pale-Cyan);
+        
+    
+        @media screen and (max-width : 700px){
+            // border: 2px solid blue;
+            background: url('../images/bg-hero-mobile.svg') center center no-repeat;
+            background-size: cover;
+            background-color: map-get($colors, Very-Pale-Cyan);
+        
+        }
+    
+        & .first_section_container {
+            width: 90%;
+            margin: auto;
+            padding: 50px 0;
+            font-family: Poppins;
+            @media screen and (max-width : 700px){
+                width: 95%;
+                padding: 25px 0 50px;
+            }
+    
+            & .header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 50px;
+                @media screen and (max-width : 700px){
+                }
+    
+                & .logo {
+                    width: 150px;
+                    @media screen and (max-width : 700px){
+                        width: 90px;
+                    }
+                }
+    
+                & .header_btn {
+                    @extend %btn;
+                    background-color: #FFF;
+                    color: map-get($colors, Very-Dark-Cyan);
+                    box-shadow: 1px 2px 5px rgba($color: #000000, $alpha: .2);
+
+                    &:hover {
+                        color: map-get($colors, Grayish-Blue);
+                    }
+                    @media screen and (max-width : 700px){
+                        padding: 10px 20px;
+                        font-size: 12px;
+                    }
+                }
+            }
+    
+            & .section_description {
+                display: grid;
+                grid-template-columns: 1fr 1.2fr;
+                column-gap: 50px;
+                align-items: center;
+                @media screen and (max-width : 700px){
+                    grid-template-columns: 1fr;
+                    row-gap: 50px;
+                    text-align: center;
+                    width: 90%;
+                    margin : auto;
+                }
+    
+                & .description {
+                    display: grid;
+                    row-gap: 25px;
+                    @media screen and (max-width : 700px){
+                        row-gap: 18px;
+                    }
+    
+                    & .title {
+                        font-size: 40px;
+                        @media screen and (max-width : 700px){
+                            font-size: 20px;
+                        }
+                    }
+
+                    & .text {
+                        @media screen and (max-width : 700px){
+                            font-size: 14px;
+                        }
+                    }
+    
+    
+                    & .started_btn {
+                        @extend %btn;
+                        background-color: map-get($colors, Pink);
+                        color: map-get($colors, Very-Pale-Cyan);
+                        height: 45px;
+                        justify-self: flex-start;
+                        @media screen and (max-width : 700px){
+                            margin: auto;
+                        }
+                    }
+                }
+    
+                & .description_image {
+                    width: 100%;
+                }
+    
+            }
+        }
+    }
+    
+    & .second_section {
+        font-family: 'Open Sans';
+    
+        & .second_section_container {
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            row-gap: 30px;
+            @media screen and (max-width : 700px){
+                
+            }
+        }
+    
+        & .item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-radius: 7px;
+            align-items: center;
+            padding: 30px 30px 30px 100px;
+            box-shadow: 0 2px 10px rgba($color: #000000, $alpha: .1);
+
+            @media screen and (max-width : 700px){
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+                row-gap: 20px;
+                grid-template-areas: 'image' 'text';
+                padding: 25px;
+                text-align: center;
+
+                & .image {
+                    grid-area: image;
+                }
+            }
+    
+            &.item1, &.item3 {
+    
+                & .image {
+                    justify-self: flex-end;
+                    @media screen and (max-width : 700px){
+                        grid-area: image;
+                    }
+                }
+            }
+    
+            & .description {
+                display: grid;
+                row-gap: 15px;
+    
+                & .title {
+                    font-weight: map-get($weigths, w700);
+                    color: map-get($colors, Very-Dark-Cyan);
+                    font-size: 25px;
+                    @media screen and (max-width : 700px){
+                        font-size: 20px;
+                    }
+                }
+    
+                & .text {
+                    line-height: 26px;
+                    color: map-get($colors, Grayish-Blue);
+                    @media screen and (max-width : 700px){
+                        line-height: 20px;
+                    }
+                }
+            }
+    
+            & .image {
+                width: 350px;
+                @media screen and (max-width : 700px){
+                    width: 100%;
+                }
+            }
+        }
+    }
+    
+    & .build {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        display: grid;
+        row-gap: 30px;
+        box-shadow: 0 2px 5px rgba($color: #000000, $alpha: .2);
+        padding: 60px 0 40px;
+        border-radius: 10px;
+        transform: translateY(65px);
+        background-color: #FFF;
+        @media screen and (max-width : 700px){
+            width: 90%;
+            padding: 20px 0;
+        }
+    
+        & .title {
+            color: map-get($colors, Very-Dark-Cyan);
+            font-weight: map-get($weigths, w700);
+            font-size: 25px;
+            @media screen and (max-width : 700px){
+                font-size: 20px;
+            }
+        }
+    
+        & .get_started {
+            @extend %btn;
+            background-color: map-get($colors, Pink);
+            color: map-get($colors, Very-Pale-Cyan);
+            height: 50px;
+            width: 50%;
+            margin: auto;
+            @media screen and (max-width : 700px){
+                width: 70%;
+                font-size: 14px;
+                padding: 10px 20px;
+                height: 40px;
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: map-get($colors, Very-Dark-Cyan);
+    color: map-get($colors, Very-Pale-Cyan);
+    padding: 150px 0 30px;
+    @media screen and (max-width : 700px){
+        padding-top: 130px;
+    }
+
+    & a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            color: map-get($colors, pink);
+            text-decoration: underline;
+        }
+    }
+    & .footer_container {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        row-gap: 40px;
+        @media screen and (max-width : 700px){
+            width: 92%;
+            justify-self: flex-start;
+            row-gap: 20px;
+        }
+
+        & .logo  {
+            @media screen and (max-width : 700px){
+                & img {
+                    width: 150px;
+                }
+            }
+        }
+
+        & .footer_content {
+            display: grid;
+            grid-template-columns: 2.2fr 1fr 1fr 1fr;
+            column-gap: 60px;
+            align-items: flex-start;
+            @media screen and (max-width : 700px){
+                display: flex;
+                flex-direction: column;
+            }
+
+            & .contacts {
+                display: grid;
+                row-gap: 20px;
+                @media screen and (max-width : 700px){
+                    row-gap: 15px;
+                    margin-bottom: 20px;
+                }
+
+                & .localisation {
+                    display: flex;
+                    align-items: flex-start;
+                    justify-self: flex-start;
+
+                    & svg {
+                        margin-right: 20px;
+
+                    }
+                }
+
+                & .phone {
+                    display: flex;
+                    align-items: center;
+                    justify-self: flex-start;
+
+                    &:hover svg path {
+                        fill: map-get($colors, pink);
+                    }
+                    & svg {
+                        margin-right: 20px;
+                    }
+                }
+
+                & .gmail {
+                    display: flex;
+                    align-items: center;
+                    justify-self: flex-start;
+
+                    &:hover svg path{
+                        fill: map-get($colors, pink);
+                    }
+                    & svg {
+                        margin-right: 20px;
+                    }
+                }
+            }
+
+            & .links {
+                display: grid;
+                grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+                row-gap: 20px;
+                @media screen and (max-width : 700px){
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    margin-top: 10px;
+                }
+
+                & a {
+                    justify-self: flex-start;
+                }
+            }
+
+            & .socials_icons {
+                display: flex;
+                align-items: center;
+                justify-self: flex-start;
+                @media screen and (max-width : 700px){
+                    margin: 40px auto 0;
+                }
+
+                & a {
+                    border: 1px solid map-get($colors, Very-Pale-Cyan);
+                    border-radius: 50%;
+                    padding: 5px;
+                    width: 34px;
+                    height: 34px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 10px;
+
+                    &:hover{
+                        border-color: map-get($colors, pink);
+                        & svg {
+                            fill: map-get($colors, pink);
+                        }
+                    }
+
+                    & .icon_facebook {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+                & svg {
+                    fill: map-get($colors, Very-Pale-Cyan);
+                    transition: fill .2s linear;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+        & .copy {
+            align-self: flex-start;
+            justify-self: flex-end;
+            @media screen and (max-width : 700px){
+                font-size: 12px;
+                justify-self: center;
+            }
+        }
+    }
+
+    & .attribution {
+        text-align: center;
+        margin: 20px;
+        @media screen and (max-width : 700px){
+            font-size: 12px;
+        }
+
+        & a {
+            color: map-get($colors, Pink);
+        }
+    }
+}
